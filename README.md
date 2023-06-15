@@ -6,3 +6,5 @@
     <li>Hard sudoku have around 28–30 givens</li>
     <li>Very Hard sudoku have less than 28 givens</li>
 </ul>
+<a href="https://www.codewars.com/kata/5588bd9f28dbb06f43000085">Codewars page</a>
+
