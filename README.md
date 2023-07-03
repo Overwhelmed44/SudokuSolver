@@ -1,5 +1,10 @@
 <h1 align="center">Sudoku Solver + GUI</h1>
-<h3>Solves sudoku puzzles of any difficulty</h3>
+<h3>
+    Solves sudoku puzzles of any difficulty.
+    Raises an error in cases of:
+    invalid grid (not 9x9, cell with values not in the range 1~9);
+    multiple solutions for the same puzzle or the puzzle is unsolvable.
+</h3>
 <ul>
     <li>Easy sudoku generally have over 32 givens</li>
     <li>Medium sudoku have around 30–32 givens</li>
