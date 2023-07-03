@@ -1,4 +1,4 @@
-from sudoku_solver import sudoku_solver
+from sudoku_solver import solve
 import PySimpleGUI as psg
 from copy import deepcopy
 
@@ -37,7 +37,7 @@ def main():
             window.update()
         elif event == "Solve":
             try:
-                window.update(sudoku_solver([[int(v) if (v := values[f'{ln}{n}']) else 0 for n in range(9)] for ln in range(9)]))
+                window.update(solve([[int(v) if (v := values[f'{ln}{n}']) else 0 for n in range(9)] for ln in range(9)]))
             except:
                 psg.Popup('Error!')
 
