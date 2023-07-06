@@ -101,6 +101,19 @@ class SudokuSolver:
                     self.replace(ind, x, *variations)
                     self.changes.append((ind, x))
 
+            square = self.get_square(y, x)[0]
+            for ind, arg in enumerate(self.squares[square]):
+                if arg:
+                    continue
+                y = square // 3 * 3 + ind // 3
+                x = square % 3 * 3 + ind % 3
+                variations = self.variations(y, x)
+                if not variations:
+                    return False
+                if len(variations) == 1:
+                    self.replace(y, x, *variations)
+                    self.changes.append((y, x))
+
         if all(map(all, self.rows)):
             return self.rows
 
