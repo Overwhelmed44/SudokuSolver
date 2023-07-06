@@ -13,7 +13,7 @@
 </h3>
 <ul>
     <li>Invalid grid (not 9x9, cell with values not in the range 1~9)</li>
-    <li>Multiple solutions for the same puzzle (you can disable this)</li>
+    <li>Multiple solutions for the same puzzle (disabled by default)</li>
     <li>The puzzle is unsolvable</li>
 </ul>
 <a href="https://www.codewars.com/kata/5588bd9f28dbb06f43000085">Codewars page</a>
