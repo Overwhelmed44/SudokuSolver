@@ -22,10 +22,8 @@ class SudokuSolver:
         if squares:
             self.squares = squares
         else:
-            self.squares = []
+            self.squares = [[] for _ in range(9)]
             for it in range(9):
-                if not it % 3:
-                    self.squares.extend(([], [], []))
                 r = rows[it]
                 for n in range(3):
                     n3 = n * 3
