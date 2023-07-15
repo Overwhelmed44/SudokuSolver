@@ -1,11 +1,10 @@
 from sudoku_solver import solve
 import PySimpleGUI as psg
-from copy import deepcopy
 
 
 class Window:
     def __init__(self):
-        self.grid = [deepcopy([deepcopy(psg.Input(key=f'{ln}{n}', size=(2, 1), justification='center')) for n in range(9)]) for ln in range(9)]
+        self.grid = [[psg.Input(key=f'{ln}{n}', size=(2, 1), justification='center') for n in range(9)] for ln in range(9)]
         self.window = psg.Window(
             'SudokuSolver', [
                 *self.grid,
