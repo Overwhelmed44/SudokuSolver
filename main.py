@@ -4,10 +4,9 @@ import PySimpleGUI as psg
 
 class Window:
     def __init__(self):
-        self.grid = [[psg.Input(key=f'{ln}{n}', size=(2, 1), justification='center') for n in range(9)] for ln in range(9)]
         self.window = psg.Window(
             'SudokuSolver', [
-                *self.grid,
+                [[psg.Input(key=f'{ln}{n}', size=(2, 1), justification='center') for n in range(9)] for ln in range(9)],
                 [psg.Button('Solve', size=13), psg.Button('Clear', expand_x=True)]
             ]
         )
