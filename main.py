@@ -2,22 +2,22 @@ from sudoku_solver import solve
 import PySimpleGUI as psg
 
 
-class Window:
+class Window(psg.Window):
     def __init__(self):
-        self.window = psg.Window(
+        super().__init__(
             'SudokuSolver', [
                 [[psg.Input(key=f'{ln}{n}', size=(2, 1), justification='center') for n in range(9)] for ln in range(9)],
                 [psg.Button('Solve', size=13), psg.Button('Clear', expand_x=True)]
             ]
         )
 
-    def update(self, lst=None):
+    def update_all(self, lst=None):
         for ln in range(9):
             for n in range(9):
                 if not lst:
-                    self.window[f'{ln}{n}'].update('')
+                    self[f'{ln}{n}'].update('')
                 else:
-                    self.window[f'{ln}{n}'].update(lst[ln][n])
+                    self[f'{ln}{n}'].update(lst[ln][n])
 
 
 def main():
@@ -26,16 +26,16 @@ def main():
     )
     window = Window()
     while True:
-        event, values = window.window.read()
+        event, values = window.read()
 
         if event == psg.WINDOW_CLOSED:
             break
 
         if event == "Clear":
-            window.update()
+            window.update_all()
         elif event == "Solve":
             try:
-                window.update(solve([[int(v) if (v := values[f'{ln}{n}']) else 0 for n in range(9)] for ln in range(9)]))
+                window.update_all(solve([[int(v) if (v := values[f'{ln}{n}']) else 0 for n in range(9)] for ln in range(9)]))
             except:
                 psg.Popup('Error!')
 
