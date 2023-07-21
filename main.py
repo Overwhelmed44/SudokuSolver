@@ -14,10 +14,7 @@ class Window(psg.Window):
     def update_all(self, lst=None):
         for ln in range(9):
             for n in range(9):
-                if not lst:
-                    self[f'{ln}{n}'].update('')
-                else:
-                    self[f'{ln}{n}'].update(lst[ln][n])
+                self.__getitem__(f'{ln}{n}').update('' if not lst else lst[ln][n])
 
 
 def main():
